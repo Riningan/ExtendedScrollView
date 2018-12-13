@@ -2,15 +2,23 @@ package com.riningan.widget;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+/**
+ * Created by Vadim Akhmarov on 13.12.2018.
+ * Project ExtendedScrollView
+ * Classname ExtendedScrollView
+ * Version 1.0
+ * Copyright All rights reserved.
+ */
 
 public class ExtendedScrollView extends NestedScrollView {
-    private Boolean mEnableScrolling = true;
+    private Boolean mScrollEnabled = true;
 
 
     public ExtendedScrollView(@NonNull Context context) {
@@ -19,16 +27,18 @@ public class ExtendedScrollView extends NestedScrollView {
 
     public ExtendedScrollView(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
+        init(attrs);
     }
 
     public ExtendedScrollView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init(attrs);
     }
 
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
-        if (mEnableScrolling) {
+        if (mScrollEnabled) {
             return super.onInterceptTouchEvent(ev);
         } else {
             return false;
@@ -38,7 +48,7 @@ public class ExtendedScrollView extends NestedScrollView {
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (mEnableScrolling) {
+        if (mScrollEnabled) {
             return super.onTouchEvent(ev);
         } else {
             return false;
@@ -47,10 +57,17 @@ public class ExtendedScrollView extends NestedScrollView {
 
 
     public Boolean isScrollEnabled() {
-        return mEnableScrolling;
+        return mScrollEnabled;
     }
 
-    public void setEnableScrolling(Boolean value) {
-        mEnableScrolling = value;
+    public void setScrollEnabled(Boolean value) {
+        mScrollEnabled = value;
+    }
+
+
+    private void init(AttributeSet attrs) {
+        TypedArray typedArray = getContext().getTheme().obtainStyledAttributes(attrs, R.styleable.ExtendedScrollView, 0, 0);
+        mScrollEnabled = typedArray.getBoolean(R.styleable.ExtendedScrollView_scroll_enabled, true);
+        typedArray.recycle();
     }
 }
