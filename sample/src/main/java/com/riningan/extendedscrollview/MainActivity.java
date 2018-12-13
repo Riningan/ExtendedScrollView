@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (esv.isScrollEnabled()) {
-                    esv.setEnableScrolling(false);
+                    esv.setScrollEnabled(false);
                     btn.setText(R.string.unlock);
                 } else {
-                    esv.setEnableScrolling(true);
+                    esv.setScrollEnabled(true);
                     btn.setText(R.string.lock);
                 }
             }
