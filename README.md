@@ -1,5 +1,7 @@
 # ExtendedScrollView
-	
+
+[ ![Download](https://api.bintray.com/packages/riningan/AndroidMaven/ExtendedScrollView/images/download.svg) ](https://bintray.com/riningan/AndroidMaven/ExtendedScrollView/_latestVersion)
+
 Android's extended scroll view, based on NestedScrollView
 
 DEMO
