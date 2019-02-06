@@ -9,6 +9,9 @@ import android.support.v4.widget.NestedScrollView;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+import com.riningan.widget.extendedscrollview.R;
+
+
 /**
  * Created by Vadim Akhmarov on 13.12.2018.
  * Project ExtendedScrollView
